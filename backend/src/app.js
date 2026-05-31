@@ -21,6 +21,20 @@ app.use(
   }),
 );
 
+app.get("/", (req, res) => {
+  res.status(200).json({
+    status: "success",
+    message: "MoonCart API is running.",
+  });
+});
+
+app.get("/api/health", (req, res) => {
+  res.status(200).json({
+    status: "success",
+    message: "Server is healthy.",
+  });
+});
+
 app.use("/api/auth", authRouter);
 app.use("/api/products", productRouter);
 app.use("/api/cart", cartRouter);
