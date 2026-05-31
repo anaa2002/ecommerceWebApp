@@ -35,4 +35,4 @@ npm install
 
 # Ecommerce App
 
-Live Demo: https://ecommerce-web-j6q0kk7aa-ana-dev-studio.vercel.app/
+Live Demo: https://ecommerce-web-app-green.vercel.app/
