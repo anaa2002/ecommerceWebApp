@@ -1,10 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ShoppingCart, LogOut } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 
 function Navbar() {
   const { user, logout } = useAuth();
 
+  const navigate = useNavigate();
+  async function handleLogout() {
+    await logout();
+    navigate("/");
+  }
   return (
     <header className="navbar">
       <Link to="/" className="logo">
@@ -25,7 +30,7 @@ function Navbar() {
 
             {user.role === "admin" && <Link to="/admin">Admin</Link>}
 
-            <button onClick={logout} className="logout-button">
+            <button onClick={handleLogout} className="logout-button">
               <LogOut size={18} />
               Logout
             </button>

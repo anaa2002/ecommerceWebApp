@@ -11,6 +11,7 @@ import PurchaseSuccessPage from "./pages/PurchaseSuccessPage";
 import PurchaseCancelPage from "./pages/PurchaseCancelPage";
 import CartPage from "./pages/CartPage";
 import Footer from "./components/Footer";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
   const { isCheckingAuth } = useAuth();
@@ -48,7 +49,14 @@ function App() {
               </AdminRoute>
             }
           />
-          <Route path="/cart" element={<CartPage />} />
+          <Route
+            path="/cart"
+            element={
+              <ProtectedRoute>
+                <CartPage />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/purchase-success" element={<PurchaseSuccessPage />} />
           <Route path="/purchase-cancel" element={<PurchaseCancelPage />} />
         </Routes>
